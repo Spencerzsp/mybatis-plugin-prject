@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bigdata.mybatis.mapper.ShuqiUserMapper">
+    <select id="getUserSexCount" resultType="com.bigdata.mybatis.dto.ShuqiUserDTO">
+        select
+            case when sex = 0 then '男'
+                 when sex = 1 then '女'
+                 end
+            sex
+            , count(*) cnt
+            from shuqi_user
+        group by
+            sex
+    </select>
+</mapper>
